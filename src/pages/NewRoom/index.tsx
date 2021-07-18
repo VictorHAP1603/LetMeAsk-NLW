@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 
 import { Container, Aside, Main } from "./style";
 
-export default function Home() {
+export default function NewRoom() {
   return (
     <Container>
       <Aside>
@@ -20,18 +20,17 @@ export default function Home() {
       <Main>
         <div>
           <img src={logoImg} alt="Letmeask" />
-          <button>
-            <img src={GoogleImg} alt="Logo do Google" />
-            Crie sua sala com o Google
-          </button>
-
-          <div className="separator">ou entre em uma sala</div>
+          <h2>Criar uma nova sala</h2>
 
           <form>
-            <input type="text" placeholder="Digite o código da sala" />
+            <input type="text" placeholder="Nome da sala" />
 
-            <Button type="submit">Entrar na sala</Button>
+            <Button type="submit">Criar sala</Button>
           </form>
+
+          <p>
+            Quer entrar em uma sala existente? <a href="#">clique aqui</a>
+          </p>
         </div>
       </Main>
     </Container>
