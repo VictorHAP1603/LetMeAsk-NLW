@@ -58,6 +58,13 @@ export const Main = styled.main`
     > h2 {
       font-size: 1.5rem;
       margin: 64px 0 24px;
+      font-size: 1.5rem;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+    }
+
+    > h1 {
+      font-size: 1.5rem;
       text-align: center;
       font-family: "Poppins", sans-serif;
     }

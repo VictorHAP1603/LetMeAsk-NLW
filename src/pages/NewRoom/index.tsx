@@ -2,13 +2,15 @@ import { Link } from "react-router-dom";
 
 import IllustrationImg from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
-import GoogleImg from "../../assets/images/google-icon.svg";
 
 import Button from "../../components/Button";
+import { useAuth } from "../../hooks/useAuth";
 
 import { Container, Aside, Main } from "./style";
 
 export default function NewRoom() {
+  const { user } = useAuth();
+
   return (
     <Container>
       <Aside>
@@ -23,6 +25,7 @@ export default function NewRoom() {
       <Main>
         <div>
           <img src={logoImg} alt="Letmeask" />
+          <h1>{user?.name}</h1>
           <h2>Criar uma nova sala</h2>
 
           <form>

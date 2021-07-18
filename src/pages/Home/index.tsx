@@ -1,4 +1,5 @@
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+// import { auth, firebase } from "../../services/firebase";
 
 import IllustrationImg from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
@@ -7,11 +8,18 @@ import GoogleImg from "../../assets/images/google-icon.svg";
 import Button from "../../components/Button";
 
 import { Container, Aside, Main } from "./style";
+import { useAuth } from "../../hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 export default function Home() {
   const history = useHistory();
+  const { signInWithGoogle, user } = useAuth();
 
-  function navigateToNewRoom() {
+  async function handleCreateRom() {
+    if (!user) {
+      await signInWithGoogle();
+    }
+
     history.push("/rooms/new");
   }
 
@@ -25,10 +33,11 @@ export default function Home() {
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </Aside>
+
       <Main>
         <div>
           <img src={logoImg} alt="Letmeask" />
-          <button onClick={navigateToNewRoom}>
+          <button onClick={handleCreateRom}>
             <img src={GoogleImg} alt="Logo do Google" />
             Crie sua sala com o Google
           </button>
